@@ -12,7 +12,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-#knitr::opts_chunk$set(echo = TRUE, error=TRUE, message=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = TRUE, error=TRUE, message=FALSE, warning=FALSE)
 ```
 
 ```{r libraries}
@@ -127,6 +127,7 @@ animate(train_delays2018, duration = 20)
 
 anim_save("traindelays.gif")
 ```
+
 ```{r, echo=FALSE}
 knitr::include_graphics("traindelays.gif")
 ```
@@ -152,7 +153,7 @@ tomatoes <- garden_harvest %>%
   ungroup() %>% 
   complete(variety, date, fill = list(daily_harvest_lb = 0))
 ```
-```{r}
+```{r, eval=FALSE}
 tomato_animate <- tomatoes %>% 
   ggplot(aes(x = date, 
              y = cumtotharvest)) +
@@ -169,8 +170,9 @@ animate(tomato_animate)
 
 anim_save("tomatoeos.gif")
 ```
+
 ```{r, echo=FALSE}
-knitr::include_graphics("tomatoes.gif")
+knitr::include_graphics("tomatoeos.gif")
 ```
 ## Maps, animation, and movement!
 
@@ -184,7 +186,7 @@ knitr::include_graphics("tomatoes.gif")
   * CHALLENGE: use the `ggimage` package and `geom_image` to add a bike image instead of a red point. You can use [this](https://raw.githubusercontent.com/llendway/animation_and_interactivity/master/bike.png) image. See [here](https://goodekat.github.io/presentations/2019-isugg-gganimate-spooky/slides.html#35) for an example. 
   * Add something of your own! And comment on if you prefer this to the static map and why or why not.
 
-```{r}
+```{r, eval=FALSE}
 mallorca <- get_stamenmap(
     bbox = c(left = 2.34, bottom = 39.52, right = 2.70, top = 39.70), 
     maptype = "terrain",
@@ -211,6 +213,7 @@ animate(bikeride)
 
 anim_save("mallorcaride.gif")
 ```
+
 ```{r, echo=FALSE}
 knitr::include_graphics("mallorcaride.gif")
 ```
